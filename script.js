@@ -78,19 +78,13 @@ if(signInSuccess === true) {
   addItemButton.appendChild(document.createTextNode("Post to timeline"));
   addItemButton.addEventListener("click", function(){
     if(input.value.length > 0 ){
-      var li = document.createElement("li");
-      li.appendChild(document.createTextNode(input.value));
-      ul.appendChild(li);
-      input.value = "";
+      addItemToTimeline(ul, input.value);
     }
   });
 
   input.addEventListener("keypress", function(event){
     if(event.which === 13 && input.value.length > 0 ){
-      var li = document.createElement("li");
-      li.appendChild(document.createTextNode(input.value));
-      ul.appendChild(li);
-      input.value = "";
+      addItemToTimeline(ul, input.value);
     }
   });
 
@@ -101,4 +95,12 @@ if(signInSuccess === true) {
   body.appendChild(input);
   body.appendChild(addItemButton);
   body.appendChild(logOutButton);
+}
+
+
+function addItemToTimeline(parent, value) {
+  var li = document.createElement("li");
+  li.appendChild(document.createTextNode(value));
+  parent.appendChild(li);
+  input.value = "";
 }
