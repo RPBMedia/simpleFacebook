@@ -77,9 +77,11 @@ if(signInSuccess === true) {
   var addItemButton = document.createElement("button");
   addItemButton.appendChild(document.createTextNode("Post to timeline"));
   addItemButton.addEventListener("click", function(){
-    var li = document.createElement("li");
-    li.appendChild(document.createTextNode(input.value));
-    ul.appendChild(li);
+    if(input.value.length > 0 ){ 
+      var li = document.createElement("li");
+      li.appendChild(document.createTextNode(input.value));
+      ul.appendChild(li);
+    }
   });
 
   var body = document.querySelector("body");
