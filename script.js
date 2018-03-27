@@ -85,6 +85,15 @@ if(signInSuccess === true) {
     }
   });
 
+  input.addEventListener("keypress", function(event){
+    if(event.which === 13 && input.value.length > 0 ){
+      var li = document.createElement("li");
+      li.appendChild(document.createTextNode(input.value));
+      ul.appendChild(li);
+      input.value = "";
+    }
+  });
+
   var body = document.querySelector("body");
   body.appendChild(h2);
   body.appendChild(ul);
